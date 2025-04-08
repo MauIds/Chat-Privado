@@ -19,26 +19,14 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: process.env.NODE_ENV === 'production' 
-      ? process.env.FRONTEND_URL || "*" 
-      : "*",
-    methods: ["GET", "POST"],
-    credentials: true
+    origin: "*",
+    methods: ["GET", "POST"]
   }
 });
 
 // Middleware
 app.use(express.json());
-
-// Configuración de CORS mejorada para producción
-const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? process.env.FRONTEND_URL || "*" 
-    : "*",
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Rutas
 app.use('/api/auth', require('./routes/auth'));
@@ -54,18 +42,18 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
-// Health check endpoint para Render
+// Endpoint de health check
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-// Inicializar usuarios (solo en desarrollo)
+// Inicializar usuarios (solo si no existen)
 const initializeUsers = async () => {
   try {
     const userCount = await User.countDocuments();
     
     if (userCount === 0) {
-      // Crear usuarios iniciales solo si no existen
+      // Crear usuarios iniciales
       await User.create([
         {
           userId: 'usuario1',
@@ -142,8 +130,6 @@ const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, async () => {
   console.log(`Servidor iniciado en puerto ${PORT}`);
-  // Inicializar usuarios según el entorno
-  if (process.env.INITIALIZE_USERS === 'true' || process.env.NODE_ENV !== 'production') {
-    await initializeUsers();
-  }
+  // Siempre inicializar usuarios si no existen
+  await initializeUsers();
 });
