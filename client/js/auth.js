@@ -1,5 +1,7 @@
-// URL base de la API
-const API_URL = 'http://localhost:5000';
+// URL base de la API - Configuración dinámica
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'http://localhost:5000'  // URL para desarrollo local
+  : 'https://chat-privado-m71c.onrender.com';  // URL para producción en Render
 
 // Función para realizar login
 async function login(password) {
