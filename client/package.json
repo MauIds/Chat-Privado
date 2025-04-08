@@ -1,0 +1,10 @@
+{
+    "name": "chat-privado-client",
+    "version": "1.0.0",
+    "description": "Frontend para Chat Privado",
+    "private": true,
+    "dependencies": {},
+    "devDependencies": {
+      "live-server": "^1.2.2"
+    }
+  }
