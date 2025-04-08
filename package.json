@@ -1,0 +1,38 @@
+{
+  "name": "chat-privado",
+  "version": "1.0.0",
+  "description": "Chat privado minimalista entre dos personas",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "client": "npx live-server client --port=8080",
+    "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
+    "build": "echo 'No build step needed for server'",
+    "postinstall": "npm --prefix client install"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "chat",
+    "privado",
+    "websockets"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.15.0",
+    "mongoose": "^7.5.0",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Directorios de compilación
+/dist
+/build
+
+# Directorios de sistema
+.DS_Store
+Thumbs.db
