@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="/favicons/favicon.ico">
 </head>
 
 <body x-data="app" :class="darkMode ? 'dark-mode' : ''">
@@ -29,6 +34,10 @@
             <div class="chat-header">
                 <h2>Chat con <span x-text="partnerName"></span></h2>
                 <div class="header-actions">
+                    <button class="icon-button" @click="toggleNotifications">
+                        <span x-show="!notificationsEnabled">🔕</span>
+                        <span x-show="notificationsEnabled">🔔</span>
+                    </button>
                     <button class="icon-button" @click="toggleDarkMode">
                         <span x-show="!darkMode">🌙</span>
                         <span x-show="darkMode">☀️</span>

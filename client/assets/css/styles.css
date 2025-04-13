@@ -12,6 +12,7 @@
     --message-received: #f0f0f0;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+    --notification-color: #ff5252;
 }
 
 /* Tema oscuro */
@@ -27,6 +28,7 @@
     --message-sent: #366599;
     --message-received: #3a3f45;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --notification-color: #ff7070;
 }
 
 * {
@@ -165,6 +167,22 @@ body {
 
 .icon-button:hover {
     background-color: var(--secondary-color);
+}
+
+/* Estilos para el botón de notificaciones */
+.icon-button [x-show="notificationsEnabled"] {
+    color: var(--notification-color);
+}
+
+/* Animación para notificaciones */
+@keyframes notification-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.notification-badge {
+    animation: notification-pulse 1s ease infinite;
 }
 
 .chat-messages {
