@@ -3,7 +3,6 @@
 ## 📝 Descripción
 ¡Bienvenido a Chat-App! Una aplicación de chat en tiempo real que permite la comunicación entre dos usuarios desarrollada con JavaScript, HTML y CSS con una base de datos MongoDB Atlas.
 
-![Chat Demo](https://github.com/username/chat-app/raw/main/demo.png)
 
 ## ✨ Características
 - 💬 Chat en tiempo real entre usuarios
