@@ -57,12 +57,12 @@ const initializeUsers = async () => {
       await User.create([
         {
           userId: 'usuario1',
-          name: 'Ari',
+          name: 'Usuario-1',
           password: process.env.USER1_PASSWORD || 'password1'
         },
         {
           userId: 'usuario2',
-          name: 'Mau',
+          name: 'Usuario-2',
           password: process.env.USER2_PASSWORD || 'password2'
         }
       ]);
